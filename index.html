@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Savor & Spice | Restaurant</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #fffaf5;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #1f1712;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 7%;
+        }
+
+        .logo {
+            color: #f5b942;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #f5b942;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background:
+                linear-gradient(rgba(31, 23, 18, 0.72), rgba(31, 23, 18, 0.72)),
+                linear-gradient(135deg, #7b341e, #1f1712);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #f5b942;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #f5b942;
+            color: #1f1712;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #ffd36a;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #1f1712;
+        }
+
+        /* GENERAL SECTIONS */
+        .section {
+            padding: 80px 7%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 15px;
+            color: #1f1712;
+        }
+
+        .section-subtitle {
+            max-width: 700px;
+            margin: 0 auto 45px;
+            color: #666;
+        }
+
+        /* ABOUT */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .about-content p {
+            margin-bottom: 18px;
+        }
+
+        /* MENU */
+        .menu-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .menu-card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .menu-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .menu-card h3 {
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .menu-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: #b45309;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* FEATURES */
+        .features {
+            background: #1f1712;
+            color: white;
+        }
+
+        .features .section-title {
+            color: white;
+        }
+
+        .features .section-subtitle {
+            color: #ddd;
+        }
+
+        .feature-grid {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature {
+            padding: 25px;
+        }
+
+        .feature-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            color: #f5b942;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #ddd;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: white;
+        }
+
+        .contact-box {
+            max-width: 800px;
+            margin: auto;
+            background: #fffaf5;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-info {
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1f1712;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer span {
+            color: #f5b942;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .menu-grid,
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-box {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">Savor & Spice</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>Good Food. <span>Great Moments.</span></h1>
+
+            <p>
+                Welcome to Savor & Spice — where delicious food,
+                warm hospitality, and unforgettable moments come together.
+            </p>
+
+            <a href="#menu" class="btn">Explore Our Menu</a>
+
+            <a href="#contact" class="btn btn-outline">Reserve a Table</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+
+        <h2 class="section-title">About Savor & Spice</h2>
+
+        <p class="section-subtitle">
+            A modern restaurant experience inspired by bold flavors,
+            fresh ingredients, and timeless hospitality.
+        </p>
+
+        <div class="about-content">
+
+            <p>
+                At Savor & Spice, we believe great food brings people together.
+                Our kitchen combines traditional flavors with a modern approach
+                to create dishes that are both comforting and exciting.
+            </p>
+
+            <p>
+                Whether you're enjoying a family dinner, meeting friends,
+                celebrating a special occasion, or simply looking for a great
+                meal, our goal is to make every visit memorable.
+            </p>
+
+            <p>
+                This website is a demonstration project created as part of
+                a professional web design portfolio.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- MENU -->
+    <section class="section" id="menu">
+
+        <h2 class="section-title">Our Popular Menu</h2>
+
+        <p class="section-subtitle">
+            Discover some of our most popular dishes.
+        </p>
+
+        <div class="menu-grid">
+
+            <div class="menu-card">
+                <div class="menu-icon">🍔</div>
+                <h3>Classic Gourmet Burger</h3>
+                <p>
+                    Juicy grilled beef, fresh vegetables,
+                    melted cheese, and our signature sauce.
+                </p>
+                <div class="price">$12</div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-icon">🍝</div>
+                <h3>Creamy Pasta</h3>
+                <p>
+                    Homemade pasta tossed with creamy sauce,
+                    herbs, vegetables, and parmesan.
+                </p>
+                <div class="price">$15</div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-icon">🍗</div>
+                <h3>Spiced Chicken</h3>
+                <p>
+                    Tender grilled chicken prepared with our
+                    special blend of herbs and spices.
+                </p>
+                <div class="price">$17</div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-icon">🥗</div>
+                <h3>Fresh Garden Salad</h3>
+                <p>
+                    Crisp vegetables, fresh greens, herbs,
+                    and our house dressing.
+                </p>
+                <div class="price">$9</div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-icon">🍕</div>
+                <h3>Signature Pizza</h3>
+                <p>
+                    Handcrafted crust topped with cheese,
+                    fresh ingredients, and signature seasoning.
+                </p>
+                <div class="price">$14</div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-icon">🍰</div>
+                <h3>Chocolate Dessert</h3>
+                <p>
+                    A rich chocolate dessert served with
+                    a smooth and delicious cream.
+                </p>
+                <div class="price">$8</div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="section features">
+
+        <h2 class="section-title">Why Choose Us?</h2>
+
+        <p class="section-subtitle">
+            We focus on the details that turn a meal into an experience.
+        </p>
+
+        <div class="feature-grid">
+
+            <div class="feature">
+                <div class="feature-icon">🥘</div>
+                <h3>Fresh Ingredients</h3>
+                <p>
+                    Carefully selected ingredients prepared
+                    fresh for every dish.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">👨‍🍳</div>
+                <h3>Skilled Chefs</h3>
+                <p>
+                    Our dishes are prepared with passion,
+                    creativity, and attention to detail.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">❤️</div>
+                <h3>Great Hospitality</h3>
+                <p>
+                    Friendly service and a welcoming atmosphere
+                    for every guest.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+
+        <h2 class="section-title">Reserve Your Table</h2>
+
+        <p class="section-subtitle">
+            Planning a dinner or special occasion?
+            Get in touch with our team.
+        </p>
+
+        <div class="contact-box">
+
+            <div class="contact-info">
+
+                <p>📍 Karachi, Pakistan</p>
+
+                <p>📞 +92 300 0000000</p>
+
+                <p>✉️ hello@savorandspice.com</p>
+
+                <p>🕐 Monday – Sunday: 11:00 AM – 11:00 PM</p>
+
+            </div>
+
+            <a
+                href="mailto:hello@savorandspice.com?subject=Table Reservation"
+                class="btn"
+            >
+                Contact Us
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 <span>Savor & Spice</span> —
+            Restaurant Website Demo
+        </p>
+
+        <p>
+            Designed & built as a web development portfolio project.
+        </p>
+
+    </footer>
+
+</body>
+  </html>
