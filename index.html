@@ -8,7 +8,12 @@
     <title>Savor & Spice | Fine Dining Experience</title>
 
     <meta name="description"
-        content="Savor & Spice is a modern restaurant website demo featuring delicious food, reservations, and a premium dining experience.">
+        content="Savor & Spice offers an unforgettable dining experience with handcrafted dishes, warm hospitality and beautiful surroundings.">
+
+    <meta name="keywords"
+        content="restaurant, fine dining, food, dinner, reservation, Savor and Spice">
+
+    <meta name="author" content="Savor & Spice">
 
     <style>
 
@@ -24,7 +29,7 @@
         }
 
         html {
-            scroll-padding-top: 100px;
+            scroll-padding-top: 90px;
         }
 
         body {
@@ -44,19 +49,24 @@
             text-decoration: none;
         }
 
-
-        /* =========================
-           VARIABLES
-        ========================= */
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
 
         :root {
-            --dark: #1d1511;
-            --dark-light: #2b1d16;
-            --gold: #f5b942;
+            --dark: #1b120e;
+            --dark-light: #2a1b14;
+            --gold: #f4b942;
+            --gold-light: #ffd66b;
             --gold-dark: #b86b18;
             --cream: #fffaf5;
             --white: #ffffff;
-            --text: #555;
+            --text: #5d5550;
+            --border: rgba(0, 0, 0, 0.08);
+            --shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
         }
 
 
@@ -67,36 +77,85 @@
         nav {
             position: sticky;
             top: 0;
-            z-index: 999;
-            background: rgba(29, 21, 17, 0.97);
-            padding: 18px 7%;
+            z-index: 9999;
+            background: rgba(27, 18, 14, 0.97);
+            backdrop-filter: blur(12px);
+            padding: 17px 6%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 30px;
+            gap: 25px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
         }
 
         .logo {
             color: var(--gold);
             font-size: 25px;
-            font-weight: 800;
+            font-weight: 900;
             letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: white;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 25px;
+            align-items: center;
+            gap: 24px;
         }
 
         nav ul li a {
             color: white;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 700;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
             transition: 0.3s;
         }
 
         nav ul li a:hover {
             color: var(--gold);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--dark) !important;
+            padding: 10px 17px;
+            border-radius: 25px;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-light);
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
         }
 
 
@@ -110,11 +169,14 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 80px 20px;
+            padding: 90px 20px;
 
             background:
-                linear-gradient(rgba(29, 21, 17, 0.70), rgba(29, 21, 17, 0.82)),
-                url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1800&q=85");
+                linear-gradient(
+                    rgba(20, 12, 8, 0.62),
+                    rgba(20, 12, 8, 0.86)
+                ),
+                url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1800&q=90");
 
             background-size: cover;
             background-position: center;
@@ -128,16 +190,16 @@
 
         .eyebrow {
             color: var(--gold);
-            font-weight: 800;
+            font-weight: 900;
             letter-spacing: 3px;
-            font-size: 14px;
-            margin-bottom: 18px;
+            font-size: 13px;
+            margin-bottom: 16px;
         }
 
         .hero h1 {
-            font-size: clamp(45px, 8vw, 76px);
-            line-height: 1.05;
-            margin-bottom: 25px;
+            font-size: clamp(44px, 8vw, 78px);
+            line-height: 1.03;
+            margin-bottom: 24px;
         }
 
         .hero h1 span {
@@ -147,34 +209,34 @@
         .hero p {
             max-width: 700px;
             margin: auto;
-            font-size: 20px;
-            color: #f0eeee;
+            font-size: 19px;
+            color: #eeeeee;
         }
-
-
-        /* =========================
-           BUTTONS
-        ========================= */
 
         .buttons {
             margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .btn {
             display: inline-block;
-            padding: 14px 28px;
+            padding: 14px 27px;
             border-radius: 30px;
             background: var(--gold);
             color: var(--dark);
-            font-weight: 800;
-            margin: 5px;
-            transition: 0.3s;
+            font-weight: 900;
             border: 2px solid var(--gold);
+            transition: 0.3s;
         }
 
         .btn:hover {
             transform: translateY(-4px);
-            background: #ffd369;
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+            box-shadow: 0 10px 25px rgba(244, 185, 66, 0.25);
         }
 
         .btn-outline {
@@ -190,32 +252,28 @@
 
 
         /* =========================
-           GENERAL
+           GENERAL SECTIONS
         ========================= */
 
         .section {
-            padding: 90px 7%;
+            padding: 95px 6%;
         }
 
         .section-header {
-            text-align: center;
             max-width: 750px;
-            margin: 0 auto 50px;
-        }
-
-        .section-header .eyebrow {
-            margin-bottom: 10px;
+            text-align: center;
+            margin: 0 auto 55px;
         }
 
         .section-title {
-            font-size: clamp(32px, 5vw, 45px);
+            font-size: clamp(32px, 5vw, 47px);
             line-height: 1.15;
             margin-bottom: 15px;
         }
 
         .section-text {
             color: var(--text);
-            font-size: 18px;
+            font-size: 17px;
         }
 
 
@@ -224,7 +282,7 @@
         ========================= */
 
         .about {
-            background: var(--white);
+            background: white;
         }
 
         .about-grid {
@@ -232,30 +290,30 @@
             margin: auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 55px;
+            gap: 60px;
             align-items: center;
         }
 
         .about-image {
-            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
         }
 
         .about-image img {
-            height: 480px;
+            height: 500px;
             object-fit: cover;
-            transition: 0.5s;
+            transition: 0.6s;
         }
 
         .about-image:hover img {
-            transform: scale(1.04);
+            transform: scale(1.05);
         }
 
         .about-content p {
             color: var(--text);
             font-size: 17px;
-            margin-bottom: 18px;
+            margin-bottom: 17px;
         }
 
         .about-list {
@@ -264,8 +322,8 @@
         }
 
         .about-list li {
-            margin: 12px 0;
-            font-weight: 600;
+            margin: 13px 0;
+            font-weight: 700;
         }
 
         .about-list span {
@@ -284,7 +342,7 @@
         }
 
         .features .section-text {
-            color: #ddd;
+            color: #d7d0cc;
         }
 
         .feature-grid {
@@ -296,21 +354,23 @@
         }
 
         .feature {
-            text-align: center;
             padding: 35px 25px;
+            text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 18px;
+            border-radius: 20px;
             transition: 0.3s;
+            background: rgba(255, 255, 255, 0.025);
         }
 
         .feature:hover {
-            transform: translateY(-7px);
+            transform: translateY(-8px);
             border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .feature-icon {
             font-size: 42px;
-            margin-bottom: 15px;
+            margin-bottom: 14px;
         }
 
         .feature h3 {
@@ -341,19 +401,19 @@
 
         .menu-card {
             background: white;
-            border-radius: 18px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-            transition: 0.3s;
+            transition: 0.35s;
         }
 
         .menu-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+            transform: translateY(-9px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.13);
         }
 
         .menu-image {
-            height: 220px;
+            height: 230px;
             overflow: hidden;
         }
 
@@ -372,7 +432,7 @@
         }
 
         .menu-info h3 {
-            font-size: 23px;
+            font-size: 22px;
             margin-bottom: 8px;
         }
 
@@ -383,24 +443,23 @@
 
         .menu-bottom {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 10px;
+            align-items: center;
         }
 
         .price {
             color: var(--gold-dark);
-            font-size: 22px;
-            font-weight: 800;
+            font-size: 21px;
+            font-weight: 900;
         }
 
         .small-btn {
             padding: 9px 16px;
-            border-radius: 20px;
+            border-radius: 22px;
             background: var(--dark);
             color: white;
-            font-size: 14px;
-            font-weight: bold;
+            font-size: 13px;
+            font-weight: 800;
             transition: 0.3s;
         }
 
@@ -414,17 +473,25 @@
            SPECIAL OFFER
         ========================= */
 
+        .offer-wrapper {
+            background: var(--cream);
+            padding: 0 6% 95px;
+        }
+
         .offer {
             max-width: 1150px;
-            margin: 0 auto;
+            margin: auto;
             border-radius: 25px;
-            padding: 65px 30px;
+            padding: 70px 30px;
             text-align: center;
             color: white;
 
             background:
-                linear-gradient(rgba(29, 21, 17, 0.78), rgba(29, 21, 17, 0.88)),
-                url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=85");
+                linear-gradient(
+                    rgba(29, 21, 17, 0.75),
+                    rgba(29, 21, 17, 0.90)
+                ),
+                url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=90");
 
             background-size: cover;
             background-position: center;
@@ -432,7 +499,7 @@
 
         .offer h2 {
             font-size: clamp(30px, 5vw, 45px);
-            margin-bottom: 15px;
+            margin-bottom: 14px;
         }
 
         .offer p {
@@ -459,9 +526,9 @@
         }
 
         .gallery-item {
-            height: 260px;
+            height: 270px;
             overflow: hidden;
-            border-radius: 14px;
+            border-radius: 16px;
         }
 
         .gallery-item img {
@@ -494,8 +561,13 @@
         .testimonial {
             background: white;
             padding: 30px;
-            border-radius: 18px;
+            border-radius: 20px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: 0.3s;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
         }
 
         .stars {
@@ -529,31 +601,41 @@
             display: grid;
             grid-template-columns: 0.9fr 1.1fr;
             gap: 45px;
-            align-items: center;
+            align-items: stretch;
         }
 
         .reservation-info {
             background: var(--dark);
             color: white;
-            padding: 40px;
-            border-radius: 20px;
+            padding: 42px;
+            border-radius: 22px;
         }
 
         .reservation-info h3 {
             color: var(--gold);
-            font-size: 28px;
+            font-size: 29px;
             margin-bottom: 18px;
         }
 
         .reservation-info p {
             color: #ddd;
+            margin: 13px 0;
+        }
+
+        .reservation-highlights {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .reservation-highlights div {
             margin: 12px 0;
         }
 
         .reservation-form {
             background: var(--cream);
             padding: 35px;
-            border-radius: 20px;
+            border-radius: 22px;
         }
 
         .form-row {
@@ -568,8 +650,8 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 6px;
-            font-weight: bold;
+            margin-bottom: 7px;
+            font-weight: 800;
         }
 
         .form-group input,
@@ -578,22 +660,21 @@
             width: 100%;
             padding: 13px 15px;
             border: 1px solid #ddd;
-            border-radius: 10px;
-            font-family: inherit;
-            font-size: 15px;
+            border-radius: 11px;
             outline: none;
             background: white;
-        }
-
-        .form-group textarea {
-            min-height: 110px;
-            resize: vertical;
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(244, 185, 66, 0.12);
+        }
+
+        .form-group textarea {
+            min-height: 110px;
+            resize: vertical;
         }
 
         .form-submit {
@@ -625,9 +706,15 @@
         }
 
         .contact-card {
-            padding: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 15px;
+            padding: 28px 20px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            transition: 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
         }
 
         .contact-card-icon {
@@ -640,8 +727,9 @@
             margin-bottom: 7px;
         }
 
+        .contact-card p,
         .contact-card a {
-            color: white;
+            color: #ddd;
         }
 
         .contact-card a:hover {
@@ -654,20 +742,34 @@
         ========================= */
 
         footer {
-            background: #120d0a;
-            color: #bbb;
+            background: #100a07;
+            color: #aaa;
             text-align: center;
-            padding: 30px 20px;
+            padding: 32px 20px;
         }
 
         footer strong {
             color: var(--gold);
         }
 
+        .footer-links {
+            margin: 15px 0;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            margin: 0 9px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
         .demo-note {
+            font-size: 12px;
+            color: #777;
             margin-top: 8px;
-            font-size: 13px;
-            color: #888;
         }
 
 
@@ -677,8 +779,8 @@
 
         .top-button {
             position: fixed;
-            right: 20px;
-            bottom: 20px;
+            right: 18px;
+            bottom: 18px;
             width: 48px;
             height: 48px;
             border-radius: 50%;
@@ -687,20 +789,21 @@
             justify-content: center;
             background: var(--gold);
             color: var(--dark);
-            font-size: 22px;
-            font-weight: bold;
+            font-size: 21px;
+            font-weight: 900;
             z-index: 500;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             transition: 0.3s;
         }
 
         .top-button:hover {
             transform: translateY(-4px);
+            background: var(--gold-light);
         }
 
 
         /* =========================
-           ANIMATIONS
+           ANIMATION
         ========================= */
 
         @keyframes fadeUp {
@@ -743,38 +846,79 @@
             .contact-info-grid {
                 grid-template-columns: 1fr;
             }
+
+            nav {
+                padding: 15px 5%;
+            }
         }
 
 
         @media (max-width: 650px) {
 
             nav {
-                flex-direction: column;
-                padding: 17px 15px;
-                gap: 12px;
+                flex-wrap: wrap;
+                padding: 15px 20px;
+            }
+
+            .menu-toggle {
+                display: block;
             }
 
             nav ul {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                padding-top: 10px;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
             }
 
             nav ul li a {
-                font-size: 14px;
+                display: block;
+                padding: 11px;
             }
 
+            nav ul li a::after {
+                display: none;
+            }
+
+            .nav-cta {
+                display: inline-block !important;
+            }
             .hero {
                 min-height: 82vh;
-                padding: 70px 20px;
+                padding: 75px 20px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
             }
 
             .hero p {
-                font-size: 17px;
+                font-size: 16px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .buttons .btn {
+                width: 100%;
+                max-width: 290px;
+                text-align: center;
             }
 
             .section {
-                padding: 65px 20px;
+                padding: 70px 20px;
             }
 
             .menu-grid,
@@ -800,10 +944,12 @@
                 padding: 25px;
             }
 
-            .buttons .btn {
-                display: block;
-                max-width: 280px;
-                margin: 10px auto;
+            .offer-wrapper {
+                padding: 0 20px 70px;
+            }
+
+            .offer {
+                padding: 55px 22px;
             }
         }
 
@@ -821,16 +967,28 @@
     <nav>
 
         <a href="#home" class="logo">
-            Savor & Spice
+            Savor <span>&</span> Spice
         </a>
 
-        <ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">
+            ☰
+        </button>
+
+        <ul id="navMenu">
+
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#menu">Menu</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#reservation">Reserve</a></li>
             <li><a href="#contact">Contact</a></li>
+
+            <li>
+                <a href="#reservation" class="nav-cta">
+                    Book a Table
+                </a>
+            </li>
+
         </ul>
 
     </nav>
@@ -861,7 +1019,7 @@
             <div class="buttons">
 
                 <a href="#menu" class="btn">
-                    Explore Menu
+                    Explore Our Menu
                 </a>
 
                 <a href="#reservation" class="btn btn-outline">
@@ -886,11 +1044,10 @@
             <div class="about-image">
 
                 <img
-                    src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=85"
-                    alt="Restaurant dining area">
+                    src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=90"
+                    alt="Elegant restaurant dining area">
 
             </div>
-
 
             <div class="about-content">
 
@@ -905,4 +1062,837 @@
                 <p>
                     At Savor & Spice, we believe great food is more than
                     what's on the plate. It's about the people, the atmosphere,
-                    and the mome
+                    and the moments shared around the table.
+                </p>
+
+                <p>
+                    Our kitchen brings together fresh ingredients,
+                    thoughtful preparation, and modern presentation
+                    to create dishes worth remembering.
+                </p>
+
+                <ul class="about-list">
+
+                    <li><span>✓</span> Fresh ingredients</li>
+                    <li><span>✓</span> Carefully crafted dishes</li>
+                    <li><span>✓</span> Warm hospitality</li>
+                    <li><span>✓</span> Memorable dining experience</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FEATURES
+    ========================= -->
+
+    <section class="section features">
+
+        <div class="section-header">
+
+            <div class="eyebrow">
+                WHY CHOOSE US
+            </div>
+
+            <h2 class="section-title">
+                More than just a meal.
+            </h2>
+
+            <p class="section-text">
+                Everything we do is designed to make your visit
+                special from the first bite to the last.
+            </p>
+
+        </div>
+
+        <div class="feature-grid">
+
+            <div class="feature">
+                <div class="feature-icon">🍽️</div>
+                <h3>Premium Cuisine</h3>
+                <p>
+                    Beautifully prepared dishes using carefully
+                    selected ingredients.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">👨‍🍳</div>
+                <h3>Expert Chefs</h3>
+                <p>
+                    Passionate cooking with attention to flavor,
+                    presentation and detail.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">✨</div>
+                <h3>Beautiful Atmosphere</h3>
+                <p>
+                    A comfortable setting designed for dinners,
+                    celebrations and special moments.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MENU
+    ========================= -->
+
+    <section class="section menu" id="menu">
+
+        <div class="section-header">
+
+            <div class="eyebrow">
+                OUR MENU
+            </div>
+
+            <h2 class="section-title">
+                Something delicious for everyone.
+            </h2>
+
+            <p class="section-text">
+                Explore a selection of our most loved dishes,
+                prepared fresh and served with care.
+            </p>
+
+        </div>
+
+        <div class="menu-grid">
+
+            <div class="menu-card">
+
+                <div class="menu-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85"
+                        alt="Fresh pasta dish">
+                </div>
+
+                <div class="menu-info">
+                    <h3>Creamy Truffle Pasta</h3>
+
+                    <p>
+                        Handmade pasta, creamy sauce,
+                        parmesan and aromatic truffle.
+                    </p>
+
+                    <div class="menu-bottom">
+                        <div class="price">$18</div>
+                        <a href="#reservation" class="small-btn">Order</a>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="menu-card">
+
+                <div class="menu-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85"
+                        alt="Grilled steak">
+                </div>
+
+                <div class="menu-info">
+                    <h3>Signature Grilled Steak</h3>
+
+                    <p>
+                        Tender grilled steak served with
+                        seasonal vegetables and sauce.
+                    </p>
+
+                    <div class="menu-bottom">
+                        <div class="price">$28</div>
+                        <a href="#reservation" class="small-btn">Order</a>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="menu-card">
+
+                <div class="menu-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=85"
+                        alt="Gourmet pizza">
+                </div>
+
+                <div class="menu-info">
+                    <h3>Artisan Pizza</h3>
+
+                    <p>
+                        Crisp handmade crust topped with
+                        fresh ingredients and herbs.
+                    </p>
+
+                    <div class="menu-bottom">
+                        <div class="price">$16</div>
+                        <a href="#reservation" class="small-btn">Order</a>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="menu-card">
+
+                <div class="menu-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1547592180-9c5a4f6e6b9c?auto=format&fit=crop&w=900&q=85"
+                        alt="Fresh salad">
+                </div>
+
+                <div class="menu-info">
+                    <h3>Garden Fresh Salad</h3>
+
+                    <p>
+                        Seasonal greens, vegetables,
+                        herbs and our house dressing.
+                    </p>
+
+                    <div class="menu-bottom">
+                        <div class="price">$12</div>
+                        <a href="#reservation" class="small-btn">Order</a>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="menu-card">
+
+                <div class="menu-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=900&q=85"
+                        alt="Chocolate dessert">
+                </div>
+
+                <div class="menu-info">
+                    <h3>Chocolate Delight</h3>
+
+                    <p>
+                        Rich chocolate dessert finished with
+                        cream and seasonal berries.
+                    </p>
+
+                    <div class="menu-bottom">
+                        <div class="price">$10</div>
+                        <a href="#reservation" class="small-btn">Order</a>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="menu-card">
+
+                <div class="menu-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85"
+                        alt="Fresh restaurant drinks">
+                </div>
+
+                <div class="menu-info">
+                    <h3>Signature Drinks</h3>
+
+                    <p>
+                        Refreshing handcrafted drinks designed
+                        to complement your meal.
+                    </p>
+
+                    <div class="menu-bottom">
+                        <div class="price">$8</div>
+                        <a href="#reservation" class="small-btn">Order</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SPECIAL OFFER
+    ========================= -->
+
+    <div class="offer-wrapper">
+
+        <section class="offer">
+
+            <div class="eyebrow">
+                SPECIAL EXPERIENCE
+            </div>
+
+            <h2>
+                Make tonight unforgettable.
+            </h2>
+
+            <p>
+                Join us for an evening of exceptional food,
+                beautiful surroundings and memorable moments.
+            </p>
+
+            <a href="#reservation" class="btn">
+                Reserve Your Table
+            </a>
+
+        </section>
+
+    </div>
+
+
+    <!-- =========================
+         GALLERY
+    ========================= -->
+
+    <section class="section gallery" id="gallery">
+
+        <div class="section-header">
+
+            <div class="eyebrow">
+                OUR GALLERY
+            </div>
+
+            <h2 class="section-title">
+                A taste of the experience.
+            </h2>
+
+            <p class="section-text">
+                Take a look at the food, atmosphere and moments
+                waiting for you at Savor & Spice.
+            </p>
+
+        </div>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+                <img
+                    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85"
+                    alt="Restaurant interior">
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=85"
+                    alt="Restaurant tables">
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=85"
+                    alt="Restaurant food">
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=85"
+                    alt="Fine dining table">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TESTIMONIALS
+    ========================= -->
+
+    <section class="section testimonials">
+
+        <div class="section-header">
+
+            <div class="eyebrow">
+                GUEST REVIEWS
+            </div>
+
+            <h2 class="section-title">
+                Loved by our guests.
+            </h2>
+
+            <p class="section-text">
+                A few words from people who have experienced
+                Savor & Spice.
+            </p>
+
+        </div>
+
+        <div class="testimonial-grid">
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>
+                    "Beautiful atmosphere, delicious food and
+                    genuinely warm service. A wonderful evening."
+                </p>
+                <h4>— Sarah M.</h4>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>
+                    "The presentation was incredible and every
+                    dish tasted fresh and full of flavor."
+                </p>
+                <h4>— Daniel R.</h4>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>
+                    "One of those restaurants you want to
+                    come back to again and again."
+                </p>
+                <h4>— Emma J.</h4>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RESERVATION
+    ========================= -->
+
+    <section class="section reservation" id="reservation">
+
+        <div class="section-header">
+
+            <div class="eyebrow">
+                RESERVATIONS
+            </div>
+
+            <h2 class="section-title">
+                Your table is waiting.
+            </h2>
+
+            <p class="section-text">
+                Reserve your table and let us take care of the rest.
+            </p>
+
+        </div>
+
+        <div class="reservation-grid">
+
+            <div class="reservation-info">
+
+                <h3>
+                    Plan your visit
+                </h3>
+
+                <p>
+                    Whether it's a romantic dinner, family gathering,
+                    business meal or special celebration, we'd love
+                    to welcome you.
+                </p>
+
+                <div class="reservation-highlights">
+
+                    <div>
+                        🕐 <strong>Opening Hours</strong><br>
+                        Monday – Sunday
+                    </div>
+
+                    <div>
+                        🍽️ <strong>Dining</strong><br>
+                        Lunch & Dinner
+                    </div>
+
+                    <div>
+                        ✨ <strong>Experience</strong><br>
+                        Fine dining & celebrations
+                    </div>
+
+                </div>
+
+            </div>
+
+            <form class="reservation-form" id="reservationForm">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Your name"
+                            required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="you@example.com"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="date">
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="date"
+                            required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="time">
+                            Time
+                        </label>
+
+                        <select id="time" required>
+
+                            <option value="">
+                                Select time
+                            </option>
+
+                            <option>6:00 PM</option>
+                            <option>7:00 PM</option>
+                            <option>8:00 PM</option>
+                            <option>9:00 PM</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="guests">
+                        Guests
+                    </label>
+
+                    <select id="guests" required>
+
+                        <option value="">
+                            Number of guests
+                        </option>
+
+                        <option>1 Guest</option>
+                        <option>2 Guests</option>
+                        <option>3 Guests</option>
+                        <option>4 Guests</option>
+                        <option>5+ Guests</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Special Request
+                    </label>
+
+                    <textarea
+                        id="message"
+                        placeholder="Any special requests?"></textarea>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn form-submit">
+
+                    Request Reservation
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section class="section contact" id="contact">
+
+        <div class="section-header">
+
+            <div class="eyebrow">
+                GET IN TOUCH
+            </div>
+
+            <h2 class="section-title">
+                We'd love to hear from you.
+            </h2>
+
+            <p class="section-text">
+                Questions, celebrations or special requests?
+                 special requests?
+                Get in touch with our team.
+            </p>
+
+        </div>
+
+
+        <div class="contact-info-grid">
+
+            <div class="contact-card">
+
+                <div class="contact-card-icon">
+                    📍
+                </div>
+
+                <h3>Location</h3>
+
+                <p>
+                    Your City, Your Country
+                </p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-card-icon">
+                    📞
+                </div>
+
+                <h3>Phone</h3>
+
+                <a href="tel:+0000000000">
+                    +00 000 000 0000
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-card-icon">
+                    ✉️
+                </div>
+
+                <h3>Email</h3>
+
+                <a href="mailto:hello@savorandspice.com">
+                    hello@savorandspice.com
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-brand">
+            <strong>Savor & Spice</strong>
+        </div>
+
+        <div class="footer-links">
+
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#reservation">Reservations</a>
+            <a href="#contact">Contact</a>
+
+        </div>
+
+        <div class="footer-social">
+
+            <a href="#contact" aria-label="Contact us">✉️</a>
+            <a href="#reservation" aria-label="Book a table">🍽️</a>
+
+        </div>
+
+        <p class="demo-note">
+            © <span id="year"></span> Savor & Spice.
+            All rights reserved.
+        </p>
+
+        <p class="demo-note">
+            Crafted as a professional restaurant website concept.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         BACK TO TOP
+    ========================= -->
+
+    <a href="#home"
+       class="top-button"
+       aria-label="Back to top">
+        ↑
+    </a>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /* MOBILE NAVIGATION */
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const navMenu =
+            document.getElementById("navMenu");
+
+
+        if (menuToggle && navMenu) {
+
+            menuToggle.addEventListener("click", function () {
+
+                navMenu.classList.toggle("active");
+
+                menuToggle.textContent =
+                    navMenu.classList.contains("active")
+                    ? "✕"
+                    : "☰";
+
+            });
+
+
+            document
+                .querySelectorAll("#navMenu a")
+                .forEach(function (link) {
+
+                    link.addEventListener("click", function () {
+
+                        navMenu.classList.remove("active");
+
+                        menuToggle.textContent = "☰";
+
+                    });
+
+                });
+
+        }
+
+
+        /* RESERVATION FORM */
+
+        const reservationForm =
+            document.getElementById("reservationForm");
+
+
+        if (reservationForm) {
+
+            reservationForm.addEventListener(
+                "submit",
+                function (event) {
+
+                    event.preventDefault();
+
+                    const name =
+                        document.getElementById("name").value;
+
+                    alert(
+                        "Thank you, " +
+                        name +
+                        "! Your reservation request has been received."
+                    );
+
+                    reservationForm.reset();
+
+                }
+            );
+
+        }
+
+
+        /* CURRENT YEAR */
+
+        const yearElement =
+            document.getElementById("year");
+
+
+        if (yearElement) {
+
+            yearElement.textContent =
+                new Date().getFullYear();
+
+        }
+
+
+        /* SMOOTH SCROLL */
+
+        document
+            .querySelectorAll('a[href^="#"]')
+            .forEach(function (link) {
+
+                link.addEventListener("click", function (event) {
+
+                    const targetId =
+                        this.getAttribute("href");
+
+                    const target =
+                        document.querySelector(targetId);
+
+                    if (target) {
+
+                        event.preventDefault();
+
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+
+                    }
+
+                });
+
+            });
+
+    </script>
+
+
+</body>
+
+</html> 
+         
